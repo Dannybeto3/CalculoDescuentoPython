@@ -1,0 +1,26 @@
+def calculo_descuento_precio(descuento, precio):
+    precio_descuento = precio - (precio * descuento / 100)
+    return precio_descuento
+
+# Solicitar el precio del producto
+variable_temp = input("Ingrese precio del producto: ")
+if variable_temp == "" or not variable_temp.replace('.', '', 1).isdigit():
+    print("Ingrese un valor numérico válido para el precio.")
+else:
+    precio = float(variable_temp)
+
+    # Solicitar el porcentaje de descuento
+    valor_temp1 = input("Ingrese porcentaje de descuento: ")
+    if valor_temp1 == "" or not valor_temp1.replace('.', '', 1).isdigit():
+        print("Ingrese un valor numérico válido para el porcentaje de descuento.")
+    else:
+        descuento = float(valor_temp1)
+
+        # Solicitar la cantidad de productos
+        cantidad_productos = input("Ingrese cantidad de productos : ")
+        if cantidad_productos == "" or not cantidad_productos.isdigit():
+            print("Ingrese un valor numérico válido para la cantidad de productos.")
+        else:
+            cantidad = int(cantidad_productos)
+            total = calculo_descuento_precio(descuento, precio) * cantidad
+            print("El costo total con descuento es:", total)
